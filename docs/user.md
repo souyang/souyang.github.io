@@ -472,3 +472,13 @@ Ideally, a user registration progress should be split into two steps.
 
 Grab [the source codes from my github](https://github.com/souyang/nestjs-rest-examples), switch to branch [feat/user](https://github.com/souyang/nestjs-rest-examples/blob/feat/user).
 
+## Other Sections
+* [Getting Started](./guide.md)
+* [Connecting to MongoDB](./mongo.md)
+* [Protect your APIs with JWT Token](./auth.md)
+* [Dealing with model relations](./model.md)
+* [Externalizing the configuration](./config.md)
+* [Testing Nestjs applications](./testing.md)
+
+# Thanks
+If you like the examples, [share a star](https://github.com/souyang/souyang.github.io)

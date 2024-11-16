@@ -711,5 +711,16 @@ true
 [{"id":2,"title":"Create CRUD RESTful APIs","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"id":3,"title":"Connect to MongoDB","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"title":"new post","content":"content of my new post","id":4,"createdAt":"2020-06-13T04:20:52.526Z"}]
 ```
 
+
 [Go back to top](#building-restful-apis-with-nestjs)
 
+## Other Sections
+* [Connecting to MongoDB](./mongo.md)
+* [Protect your APIs with JWT Token](./auth.md)
+* [Dealing with model relations](./model.md)
+* [Externalizing the configuration](./config.md)
+* [Handling user registration](./user.md)
+* [Testing Nestjs applications](./testing.md)
+
+# Thanks
+If you like the examples, [share a star](https://github.com/souyang/souyang.github.io)

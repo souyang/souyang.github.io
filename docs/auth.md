@@ -432,3 +432,14 @@ Try to access the */profile* endpoint using this *access_token*.
 >curl http://localhost:3000/profile -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cG4iOiJzb3V5YW5nIiwic3ViIjoiNWYyZDBlNDg2YTk2YmUxMjAwZmVmY2VjIiwiZW1haWwiOiJzb3V5YW5nQGV4YW1wbGUuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJpYXQiOjE1OTY3ODg0ODksImV4cCI6MTU5Njc5MjA4OX0.A68WsMeaAkD14b_LgH5FVp1HOuxZHT685Ulke14VMIg"
 {"username":"souyang","email":"souyang@example.com","id":"5f2d0e486a96be1200fefcec","roles":["USER"]}
 ```
+
+## Other sections
+* [Getting Started](./guide.md)
+* [Connecting to MongoDB](./mongo.md)
+* [Dealing with model relations](./model.md)
+* [Externalizing the configuration](./config.md)
+* [Handling user registration](./user.md)
+* [Testing Nestjs applications](./testing.md)
+
+# Thanks
+If you like the examples, [share a star](https://github.com/souyang/souyang.github.io)

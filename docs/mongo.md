@@ -732,3 +732,14 @@ In this post, we connected to the real MongoDB instead of the dummy data storage
 
 
 [Go back to top](#dealing-with-model-relations)
+
+## Other Sections
+* [Getting Started](./guide.md)
+* [Protect your APIs with JWT Token](./auth.md)
+* [Dealing with model relations](./model.md)
+* [Externalizing the configuration](./config.md)
+* [Handling user registration](./user.md)
+* [Testing Nestjs applications](./testing.md)
+
+# Thanks
+If you like the examples, [share a star](https://github.com/souyang/souyang.github.io)
