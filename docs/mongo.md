@@ -309,16 +309,16 @@ Run the application again. Now you will see some data when hinting *http://local
 {"_id":"655d905e8a3c1d4518e9c6f7","title":"Generate a NestJS API","content":"content","__v":0}
 
 >curl http://localhost:3000/posts/ -d "{\"title\":\"new post\",\"content\":\"content of my new post\"}" -H "Content-Type:application/json" -X POST
-{"_id":"5ee49ca915a4e75254bb7331","title":"new post","content":"content of my new post","__v":0}
+{"_id":"655d905e8a3c1d4518e9c6ff","title":"new post","content":"content of my new post","__v":0}
 
->curl http://localhost:3000/posts/5ee49ca915a4e75254bb7331 -d "{\"title\":\"my updated post\",\"content\":\"content of my new post\"}" -H "Content-Type:application/json" -X PUT
-{"_id":"5ee49ca915a4e75254bb7331","title":"new post","content":"content of my new post","__v":0}
+>curl http://localhost:3000/posts/655d905e8a3c1d4518e9c6ff -d "{\"title\":\"my updated post\",\"content\":\"content of my new post\"}" -H "Content-Type:application/json" -X PUT
+{"_id":"655d905e8a3c1d4518e9c6ff","title":"new post","content":"content of my new post","__v":0}
 
 >curl http://localhost:3000/posts
-[{"_id":"655d905e8a3c1d4518e9c6f7","title":"Generate a NestJS API","content":"content","__v":0},{"_id":"655d905e8a3c1d4518e9c6fa","title":"Create RESTful CRUD Web Service","content":"content","__v":0},{"_id":"655d905e8a3c1d4518e9c6fc","title":"Connect to Mongodb Database","content":"content","__v":0},{"_id":"5ee49ca915a4e75254bb7331","title":"my updated post","content":"content of my new post","__v":0}]
+[{"_id":"655d905e8a3c1d4518e9c6f7","title":"Generate a NestJS API","content":"content","__v":0},{"_id":"655d905e8a3c1d4518e9c6fa","title":"Create RESTful CRUD Web Service","content":"content","__v":0},{"_id":"655d905e8a3c1d4518e9c6fc","title":"Connect to Mongodb Database","content":"content","__v":0},{"_id":"655d905e8a3c1d4518e9c6ff","title":"my updated post","content":"content of my new post","__v":0}]
 
->curl http://localhost:3000/posts/5ee49ca915a4e75254bb7331  -X DELETE
-{"_id":"5ee49ca915a4e75254bb7331","title":"my updated post","content":"content of my new post","__v":0}
+>curl http://localhost:3000/posts/655d905e8a3c1d4518e9c6ff  -X DELETE
+{"_id":"655d905e8a3c1d4518e9c6ff","title":"my updated post","content":"content of my new post","__v":0}
 
 >curl http://localhost:3000/posts
 [{"_id":"655d905e8a3c1d4518e9c6f7","title":"Generate a NestJS API","content":"content","__v":0},{"_id":"655d905e8a3c1d4518e9c6fa","title":"Create RESTful CRUD Web Service","content":"content","__v":0},{"_id":"655d905e8a3c1d4518e9c6fc","title":"Connect to Mongodb Database","content":"content","__v":0}]
