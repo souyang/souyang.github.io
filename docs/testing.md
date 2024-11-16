@@ -51,7 +51,7 @@ To isolate the dependencies in a service,  there are several approaches.
   ],
   ```
 
-* For simple service providers, you can escape from the Nestjs harness, and create a simple fake dependent service, and use `new` to instantize your service in the  `setup` hooks.
+* For simple service providers, you can escape from the Nestjs harness, and create a simple fake dependent service, and use `new` to instantiate your service in the  `setup` hooks.
 
 You can also import a module in `Test.createTestingModule`.
 
@@ -91,12 +91,10 @@ jest.mock('mongoose', () => ({
 import { Connection, createConnection } from 'mongoose';
 //
 ```
-When a database provider is instantized, assert the `createConnection` is called.
+When a database provider is instantiated, assert the `createConnection` is called.
 
 ```typescript
 it('connect is called', () => {
-    //expect(conn).toBeDefined();
-    //expect(createConnection).toHaveBeenCalledTimes(1); // it is 2 here. why?
     expect(createConnection).toHaveBeenCalledWith("mongodb://localhost/blog", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -220,7 +218,7 @@ describe('API endpoints testing (e2e)', () => {
         await app.close();
     });
 
-    // an example of using supertest reqruest.
+    // an example of using supertest request.
     it('/posts (GET)', async () => {
         const res = await request(app.getHttpServer()).get('/posts').send();
         expect(res.status).toBe(200);

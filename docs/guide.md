@@ -66,7 +66,7 @@ Commands:
       └───────────────┴─────────────┘
 ```
 
- Now generate a Nestjs project via:
+ Now Generate a NestJS API via:
 
 ```bash
 nest new nestjs-sample
@@ -200,19 +200,19 @@ export class PostService {
   private posts: Post[] = [
     {
       id: 1,
-      title: 'Generate a NestJS project',
+      title: 'Generate a NestJS API',
       content: 'content',
       createdAt: new Date(),
     },
     {
       id: 2,
-      title: 'Create CRUD RESTful APIs',
+      title: 'Create RESTful CRUD Web Service',
       content: 'content',
       createdAt: new Date(),
     },
     {
       id: 3,
-      title: 'Connect to MongoDB',
+      title: 'Connect to Mongodb Database',
       content: 'content',
       createdAt: new Date(),
     },
@@ -339,7 +339,7 @@ it('getPostById with existing id should return 1 post', done => {
     service.findById(1).subscribe({
         next: data => {
             expect(data.id).toBe(1);
-            expect(data.title).toEqual('Generate a NestJS project');
+            expect(data.title).toEqual('Generate a NestJS API');
         },
         error: error => console.log(error),
         complete: done(),
@@ -425,8 +425,8 @@ it('save should increase the length of posts', done => {
     service
         .save({
             id: 4,
-            title: 'test title',
-            content: 'test content',
+            title: 'NestJS Tutorial Title',
+            content: 'NestJS Tutorial Content',
         })
         .pipe(toArray())
         .subscribe({
@@ -465,16 +465,16 @@ it('update should change the content of post', done => {
     service
         .update(1, {
             id: 1,
-            title: 'test title',
-            content: 'test content',
+            title: 'NestJS Tutorial Title',
+            content: 'NestJS Tutorial Content',
             createdAt: new Date(),
         })
         .pipe(take(4), toArray())
         .subscribe({
         next: data => {
             expect(data.length).toBe(3);
-            expect(data[0].title).toBe('test title');
-            expect(data[0].content).toBe('test content');
+            expect(data[0].title).toBe('NestJS Tutorial Title');
+            expect(data[0].content).toBe('NestJS Tutorial Content');
             expect(data[0].updatedAt).not.toBeNull();
         },
         error: error => console.log(error),
@@ -628,17 +628,17 @@ describe('Post Controller', () => {
   });
 
   it('POST on /posts should return all posts', async () => {
-    const post:Post = {id:4, title:'test title', content:'test content'};
+    const post:Post = {id:4, title:'NestJS Tutorial Title', content:'NestJS Tutorial Content'};
     const posts = await controller.createPost(post).toPromise();
     expect(posts.length).toBe(4);
   });
 
   it('PUT on /posts/1 should return all posts', done => {
-    const post:Post = {id:4, title:'test title', content:'test content'};
+    const post:Post = {id:4, title:'NestJS Tutorial Title', content:'NestJS Tutorial Content'};
     controller.updatePost(1, post).subscribe(data => {
       expect(data.length).toBe(3);
-      expect(data[0].title).toEqual('test title');
-      expect(data[0].content).toEqual('test content');
+      expect(data[0].title).toEqual('NestJS Tutorial Title');
+      expect(data[0].content).toEqual('NestJS Tutorial Content');
       expect(data[0].updatedAt).toBeTruthy();
       done();
     });
@@ -693,22 +693,22 @@ Let's test the exposed APIs via `curl`:
 
 ```bash
 >curl http://localhost:3000/posts
-[{"id":1,"title":"Generate a NestJS project","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"id":2,"title":"Create CRUD RESTful APIs","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"id":3,"title":"Connect to MongoDB","content":"content","createdAt":"2020-06-13T04:20:21.920Z"}]
+[{"id":1,"title":"Generate a NestJS API","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"id":2,"title":"Create RESTful CRUD Web Service","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"id":3,"title":"Connect to Mongodb Database","content":"content","createdAt":"2020-06-13T04:20:21.920Z"}]
 
 >curl http://localhost:3000/posts/1
-{"id":1,"title":"Generate a NestJS project","content":"content","createdAt":"2020-06-13T04:20:21.920Z"}
+{"id":1,"title":"Generate a NestJS API","content":"content","createdAt":"2020-06-13T04:20:21.920Z"}
 
 >curl http://localhost:3000/posts -d "{\"title\":\"new post\",\"content\":\"content of my new post\"}" -H "Content-Type:application/json" -X POST
-[{"id":1,"title":"Generate a NestJS project","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"id":2,"title":"Create CRUD RESTful APIs","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"id":3,"title":"Connect to MongoDB","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"title":"new post","content":"content of my new post","id":4,"createdAt":"2020-06-13T04:20:52.526Z"}]
+[{"id":1,"title":"Generate a NestJS API","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"id":2,"title":"Create RESTful CRUD Web Service","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"id":3,"title":"Connect to Mongodb Database","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"title":"new post","content":"content of my new post","id":4,"createdAt":"2020-06-13T04:20:52.526Z"}]
 
 >curl http://localhost:3000/posts/1 -d "{\"title\":\"updated post\",\"content\":\"content of my upated post\"}" -H "Content-Type:application/json" -X PUT
-[{"id":1,"title":"updated post","content":"content of my upated post","createdAt":"2020-06-13T04:20:21.920Z","updatedAt":"2020-06-13T04:21:08.259Z"},{"id":2,"title":"Create CRUD RESTful APIs","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"id":3,"title":"Connect to MongoDB","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"title":"new post","content":"content of my new post","id":4,"createdAt":"2020-06-13T04:20:52.526Z"}]
+[{"id":1,"title":"updated post","content":"content of my updated post","createdAt":"2020-06-13T04:20:21.920Z","updatedAt":"2020-06-13T04:21:08.259Z"},{"id":2,"title":"Create RESTful CRUD Web Service","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"id":3,"title":"Connect to Mongodb Database","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"title":"new post","content":"content of my new post","id":4,"createdAt":"2020-06-13T04:20:52.526Z"}]
 
 >curl http://localhost:3000/posts/1 -X DELETE
 true
 
 >curl http://localhost:3000/posts
-[{"id":2,"title":"Create CRUD RESTful APIs","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"id":3,"title":"Connect to MongoDB","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"title":"new post","content":"content of my new post","id":4,"createdAt":"2020-06-13T04:20:52.526Z"}]
+[{"id":2,"title":"Create RESTful CRUD Web Service","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"id":3,"title":"Connect to Mongodb Database","content":"content","createdAt":"2020-06-13T04:20:21.920Z"},{"title":"new post","content":"content of my new post","id":4,"createdAt":"2020-06-13T04:20:52.526Z"}]
 ```
 
 

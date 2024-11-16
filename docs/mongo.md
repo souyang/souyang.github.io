@@ -259,15 +259,15 @@ There is no sample data in the MongoDB. Utilizing with [the lifecycle events](ht
 export class DataInitializerService implements OnModuleInit, OnModuleDestroy {
   private data: CreatePostDto[] = [
     {
-      title: 'Generate a NestJS project',
+      title: 'Generate a NestJS API',
       content: 'content',
     },
     {
-      title: 'Create CRUD RESTful APIs',
+      title: 'Create RESTful CRUD Web Service',
       content: 'content',
     },
     {
-      title: 'Connect to MongoDB',
+      title: 'Connect to Mongodb Database',
       content: 'content',
     },
   ];
@@ -304,10 +304,10 @@ Run the application again. Now you will see some data when hinting *http://local
 
 ```bash
 >curl http://localhost:3000/posts/
-[{"_id":"5ee49c3115a4e75254bb732e","title":"Generate a NestJS project","content":"content","__v":0},{"_id":"5ee49c3115a4e75254bb732f","title":"Create CRUD RESTful APIs","content":"content","__v":0},{"_id":"5ee49c3115a4e75254bb7330","title":"Connect to MongoDB","content":"content","__v":0}]
+[{"_id":"655d905e8a3c1d4518e9c6f7","title":"Generate a NestJS API","content":"content","__v":0},{"_id":"655d905e8a3c1d4518e9c6fa","title":"Create RESTful CRUD Web Service","content":"content","__v":0},{"_id":"655d905e8a3c1d4518e9c6fc","title":"Connect to Mongodb Database","content":"content","__v":0}]
 
->curl http://localhost:3000/posts/5ee49c3115a4e75254bb732e
-{"_id":"5ee49c3115a4e75254bb732e","title":"Generate a NestJS project","content":"content","__v":0}
+>curl http://localhost:3000/posts/655d905e8a3c1d4518e9c6f7
+{"_id":"655d905e8a3c1d4518e9c6f7","title":"Generate a NestJS API","content":"content","__v":0}
 
 >curl http://localhost:3000/posts/ -d "{\"title\":\"new post\",\"content\":\"content of my new post\"}" -H "Content-Type:application/json" -X POST
 {"_id":"5ee49ca915a4e75254bb7331","title":"new post","content":"content of my new post","__v":0}
@@ -316,13 +316,13 @@ Run the application again. Now you will see some data when hinting *http://local
 {"_id":"5ee49ca915a4e75254bb7331","title":"new post","content":"content of my new post","__v":0}
 
 >curl http://localhost:3000/posts
-[{"_id":"5ee49c3115a4e75254bb732e","title":"Generate a NestJS project","content":"content","__v":0},{"_id":"5ee49c3115a4e75254bb732f","title":"Create CRUD RESTful APIs","content":"content","__v":0},{"_id":"5ee49c3115a4e75254bb7330","title":"Connect to MongoDB","content":"content","__v":0},{"_id":"5ee49ca915a4e75254bb7331","title":"my updated post","content":"content of my new post","__v":0}]
+[{"_id":"655d905e8a3c1d4518e9c6f7","title":"Generate a NestJS API","content":"content","__v":0},{"_id":"655d905e8a3c1d4518e9c6fa","title":"Create RESTful CRUD Web Service","content":"content","__v":0},{"_id":"655d905e8a3c1d4518e9c6fc","title":"Connect to Mongodb Database","content":"content","__v":0},{"_id":"5ee49ca915a4e75254bb7331","title":"my updated post","content":"content of my new post","__v":0}]
 
 >curl http://localhost:3000/posts/5ee49ca915a4e75254bb7331  -X DELETE
 {"_id":"5ee49ca915a4e75254bb7331","title":"my updated post","content":"content of my new post","__v":0}
 
 >curl http://localhost:3000/posts
-[{"_id":"5ee49c3115a4e75254bb732e","title":"Generate a NestJS project","content":"content","__v":0},{"_id":"5ee49c3115a4e75254bb732f","title":"Create CRUD RESTful APIs","content":"content","__v":0},{"_id":"5ee49c3115a4e75254bb7330","title":"Connect to MongoDB","content":"content","__v":0}]
+[{"_id":"655d905e8a3c1d4518e9c6f7","title":"Generate a NestJS API","content":"content","__v":0},{"_id":"655d905e8a3c1d4518e9c6fa","title":"Create RESTful CRUD Web Service","content":"content","__v":0},{"_id":"655d905e8a3c1d4518e9c6fc","title":"Connect to Mongodb Database","content":"content","__v":0}]
 ```
 
 ## Clean the testing codes
@@ -369,18 +369,18 @@ describe('PostService', () => {
   it('getAllPosts should return 3 posts', async () => {
     const posts = [
       {
-        _id: '5ee49c3115a4e75254bb732e',
-        title: 'Generate a NestJS project',
+        _id: '655d905e8a3c1d4518e9c6f7',
+        title: 'Generate a NestJS API',
         content: 'content',
       },
       {
-        _id: '5ee49c3115a4e75254bb732f',
-        title: 'Create CRUD RESTful APIs',
+        _id: '655d905e8a3c1d4518e9c6fa',
+        title: 'Create RESTful CRUD Web Service',
         content: 'content',
       },
       {
-        _id: '5ee49c3115a4e75254bb7330',
-        title: 'Connect to MongoDB',
+        _id: '655d905e8a3c1d4518e9c6fc',
+        title: 'Connect to Mongodb Database',
         content: 'content',
       },
     ];
@@ -398,8 +398,8 @@ describe('PostService', () => {
 
   it('getPostById with existing id should return 1 post', done => {
     const found = {
-      _id: '5ee49c3115a4e75254bb732e',
-      title: 'Generate a NestJS project',
+      _id: '655d905e8a3c1d4518e9c6f7',
+      title: 'Generate a NestJS API',
       content: 'content',
     };
 
@@ -409,8 +409,8 @@ describe('PostService', () => {
 
     service.findById('1').subscribe({
       next: data => {
-        expect(data._id).toBe('5ee49c3115a4e75254bb732e');
-        expect(data.title).toEqual('Generate a NestJS project');
+        expect(data._id).toBe('655d905e8a3c1d4518e9c6f7');
+        expect(data.title).toEqual('Generate a NestJS API');
       },
       error: error => console.log(error),
       complete: done(),
@@ -419,37 +419,37 @@ describe('PostService', () => {
 
   it('should save post', async () => {
     const toCreated = {
-      title: 'test title',
-      content: 'test content',
+      title: 'NestJS Tutorial Title',
+      content: 'NestJS Tutorial Content',
     };
 
     const toReturned = {
-      _id: '5ee49c3115a4e75254bb732e',
+      _id: '655d905e8a3c1d4518e9c6f7',
       ...toCreated,
     };
 
     jest.spyOn(model, 'create').mockResolvedValue(toReturned as Post);
 
     const data = await service.save(toCreated).toPromise();
-    expect(data._id).toBe('5ee49c3115a4e75254bb732e');
+    expect(data._id).toBe('655d905e8a3c1d4518e9c6f7');
     expect(model.create).toBeCalledWith(toCreated);
     expect(model.create).toBeCalledTimes(1);
   });
 
   it('should update post', done => {
     const toUpdated = {
-      _id: '5ee49c3115a4e75254bb732e',
-      title: 'test title',
-      content: 'test content',
+      _id: '655d905e8a3c1d4518e9c6f7',
+      title: 'NestJS Tutorial Title',
+      content: 'NestJS Tutorial Content',
     };
 
     jest.spyOn(model, 'findOneAndUpdate').mockReturnValue({
       exec: jest.fn().mockResolvedValueOnce(toUpdated) as any,
     } as any);
 
-    service.update('5ee49c3115a4e75254bb732e', toUpdated).subscribe({
+    service.update('655d905e8a3c1d4518e9c6f7', toUpdated).subscribe({
       next: data => {
-        expect(data._id).toBe('5ee49c3115a4e75254bb732e');
+        expect(data._id).toBe('655d905e8a3c1d4518e9c6f7');
       },
       error: error => console.log(error),
       complete: done(),
@@ -507,8 +507,8 @@ describe('Post Controller(useValue jest mocking)', () => {
                   of<any[]>([
                     {
                       _id: 'testid',
-                      title: 'test title',
-                      content: 'test content',
+                      title: 'NestJS Tutorial Title',
+                      content: 'NestJS Tutorial Content',
                     },
                   ]),
               ),
@@ -545,7 +545,7 @@ describe('Post Controller(useValue fake object)', () => {
           useValue: {
             findAll: (_keyword?: string, _skip?: number, _limit?: number) =>
               of<any[]>([
-                { _id: 'testid', title: 'test title', content: 'test content' },
+                { _id: 'testid', title: 'NestJS Tutorial Title', content: 'NestJS Tutorial Content' },
               ]),
           },
         },
@@ -569,18 +569,18 @@ Or use fake class to replace the real `PostService` in the tests.
 class PostServiceFake {
   private posts = [
     {
-      _id: '5ee49c3115a4e75254bb732e',
-      title: 'Generate a NestJS project',
+      _id: '655d905e8a3c1d4518e9c6f7',
+      title: 'Generate a NestJS API',
       content: 'content',
     },
     {
-      _id: '5ee49c3115a4e75254bb732f',
-      title: 'Create CRUD RESTful APIs',
+      _id: '655d905e8a3c1d4518e9c6fa',
+      title: 'Create RESTful CRUD Web Service',
       content: 'content',
     },
     {
-      _id: '5ee49c3115a4e75254bb7330',
-      title: 'Connect to MongoDB',
+      _id: '655d905e8a3c1d4518e9c6fc',
+      title: 'Connect to Mongodb Database',
       content: 'content',
     },
   ];
@@ -642,21 +642,21 @@ describe('Post Controller', () => {
 
   it('POST on /posts should return all posts', async () => {
     const post: CreatePostDto = {
-      title: 'test title',
-      content: 'test content',
+      title: 'NestJS Tutorial Title',
+      content: 'NestJS Tutorial Content',
     };
     const saved = await controller.createPost(post).toPromise();
-    expect(saved.title).toEqual('test title');
+    expect(saved.title).toEqual('NestJS Tutorial Title');
   });
 
   it('PUT on /posts/1 should return all posts', done => {
     const post: UpdatePostDto = {
-      title: 'test title',
-      content: 'test content',
+      title: 'NestJS Tutorial Title',
+      content: 'NestJS Tutorial Content',
     };
     controller.updatePost('1', post).subscribe(data => {
-      expect(data.title).toEqual('test title');
-      expect(data.content).toEqual('test content');
+      expect(data.title).toEqual('NestJS Tutorial Title');
+      expect(data.content).toEqual('NestJS Tutorial Content');
       done();
     });
   });
@@ -698,12 +698,12 @@ describe('Post Controller(using ts-mockito)', () => {
       mockedPostService.findAll(anyString(), anyNumber(), anyNumber()),
     ).thenReturn(
       of([
-        { _id: 'testid', title: 'test title', content: 'content' },
+        { _id: 'testid', title: 'NestJS Tutorial Title', content: 'content' },
       ]) as Observable<Post[]>,
     );
     const result = await controller.getAllPosts('', 10, 0).toPromise();
     expect(result.length).toEqual(1);
-    expect(result[0].title).toBe('test title');
+    expect(result[0].title).toBe('NestJS Tutorial Title');
     verify(
       mockedPostService.findAll(anyString(), anyNumber(), anyNumber()),
     ).once();
