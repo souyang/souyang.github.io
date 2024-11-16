@@ -1,6 +1,3 @@
-[Tutorial Home Page](./index.md)
-===
-
 # Connecting to MongoDB
 
 In the last post , we created a RESTful API application for simple CRUD functionalities.  In this post, we will enrich it: 
@@ -739,7 +736,7 @@ In this post, we connected to the real MongoDB instead of the dummy data storage
 * [Dealing with model relations](./model.md)
 * [Externalizing the configuration](./config.md)
 * [Handling user registration](./user.md)
-* [Testing Nestjs applications](./testing.md)
+* [Testing NestJS applications](./testing.md)
 
 # Thanks
 If you like the examples, [share a star](https://github.com/souyang/souyang.github.io)

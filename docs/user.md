@@ -478,7 +478,7 @@ Grab [the source codes from my github](https://github.com/souyang/nestjs-rest-ex
 * [Protect your APIs with JWT Token](./auth.md)
 * [Dealing with model relations](./model.md)
 * [Externalizing the configuration](./config.md)
-* [Testing Nestjs applications](./testing.md)
+* [Testing NestJS applications](./testing.md)
 
 # Thanks
 If you like the examples, [share a star](https://github.com/souyang/souyang.github.io)
