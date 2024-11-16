@@ -1,5 +1,4 @@
-[Tutorial Home Page](./index.md)
-===
+[Go Back to Home](./index.md)
 
 # Dealing with model relations
 

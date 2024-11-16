@@ -1,4 +1,3 @@
-
 [Go Back to Home](./index.md)
 
 # Externalizing the configuration

@@ -1,5 +1,5 @@
-[Tutorial Home Page](./index.md)
-===
+[Go Back to Home](./index.md)
+
 # Handling user registration
 
 In the previous posts, the user sample data is initialized in a service which is observing an `OnMoudleInit` event. 
@@ -241,8 +241,6 @@ describe('Register Controller', () => {
 
 In the above testing codes, we go through all conditions and make sure all code blocks in the `RegisterController` are hit.
 
-Correspondingly add tests for the newly added methods in `UserService` .  Here I skip the testing codes here, please check the [source code](https://github.com/souyang/nestjs-rest-examples/tree/feat/user) yourself.
-
 ## Hashing password 
 
 In the former posts, we used plain text to store the password field in user document. In a real world application, we should choose a hash algorithm to encode the plain password for security consideration.
@@ -331,9 +329,6 @@ describe('preSaveHook', () => {
     });
 });
 ```
-
-Explore other tests for `comparePasswordMethod` etc in the [user.model.sepc.ts](https://github.com/souyang/nestjs-rest-examples/blob/master/src/database/user.mdoel.spec.ts).
-
 Now run the application, have a look at the log in the console about the user initialization, as you see the password stored in the MongoDB is hashed.
 
 ```typescript
@@ -469,8 +464,6 @@ Ideally, a user registration progress should be split into two steps.
 
 * Validate the user input data from the registration form, and persist it into the MongoDB, then send a verification number to verify the registered phone number, email, etc.  In this stage, the user account will be suspended to verify.
 * The registered user receive the verification number or links in emails, provide it in the verification page or click the link in the email directly, and get verified. In this stage, the user account will be activated.
-
-Grab [the source codes from my github](https://github.com/souyang/nestjs-rest-examples), switch to branch [feat/user](https://github.com/souyang/nestjs-rest-examples/blob/feat/user).
 
 ## Other Sections
 * [Getting Started](./guide.md)

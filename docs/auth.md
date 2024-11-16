@@ -1,3 +1,5 @@
+[Go Back to Home](./index.md)
+
 # Protect your APIs with JWT Token
 
 In the last post, we connected to a Mongo server and used a real database to replace the dummy data storage. In this post, we will explore how to protect your APIs when exposing to a client application.
